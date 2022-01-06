@@ -7,7 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import nl.inholland.jessevanevert625868endassingment.Views.Components.UserMenuBar;
 
 public class LoginView {
     Label usernameLabel = new Label("Username:");
@@ -36,7 +38,7 @@ public class LoginView {
 
         gridPane.getChildren().addAll(usernameLabel, passwordLabel,
                 usernameInput, passwordInput, loginButton);
-
+        
         scene = new Scene(gridPane);
     }
 
