@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import nl.inholland.jessevanevert625868endassingment.Views.Components.AdminUserBar;
 import nl.inholland.jessevanevert625868endassingment.Views.Components.UserMenuBar;
 
 public class LoginView {
@@ -38,8 +39,10 @@ public class LoginView {
 
         gridPane.getChildren().addAll(usernameLabel, passwordLabel,
                 usernameInput, passwordInput, loginButton);
-        
-        scene = new Scene(gridPane);
+        AdminUserBar adminUserBar = new AdminUserBar();
+        //UserMenuBar userMenuBar = new UserMenuBar();
+        VBox vb = new VBox(adminUserBar.getMenuBar());
+        scene = new Scene(vb);
     }
 
     public Scene getView(){
