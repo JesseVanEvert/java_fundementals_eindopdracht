@@ -9,9 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import nl.inholland.jessevanevert625868endassingment.Views.Components.PurchaseTicketVBox;
 import nl.inholland.jessevanevert625868endassingment.Views.Components.UserMenuBar;
 
-public class LoginView {
+public class LoginScene {
     Label usernameLabel = new Label("Username:");
     TextField usernameInput = new TextField();
     Label passwordLabel = new Label("Password:");
@@ -20,7 +21,7 @@ public class LoginView {
 
     Scene scene;
 
-    public LoginView() {
+    public LoginScene() {
         this.createLoginView();
     }
 
@@ -38,6 +39,7 @@ public class LoginView {
 
         gridPane.getChildren().addAll(usernameLabel, passwordLabel,
                 usernameInput, passwordInput, loginButton);
+
 
         scene = new Scene(gridPane);
     }

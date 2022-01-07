@@ -1,23 +1,16 @@
 package nl.inholland.jessevanevert625868endassingment;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import nl.inholland.jessevanevert625868endassingment.Views.LoginView;
+import nl.inholland.jessevanevert625868endassingment.Views.LoginScene;
 
 import java.io.IOException;
 
 public class MovieTheaterApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        LoginView loginView = new LoginView();
+        LoginScene loginView = new LoginScene();
 
         Scene scene = loginView.getView();
         Stage window = new Stage();
