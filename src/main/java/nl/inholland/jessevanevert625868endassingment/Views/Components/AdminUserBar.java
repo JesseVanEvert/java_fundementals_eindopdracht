@@ -12,7 +12,7 @@ public class AdminUserBar extends BaseMenuBar {
         this.createAdminMenuBar();
     }
 
-    public void createAdminMenuBar(){
+    private void createAdminMenuBar(){
         adminMenu.getItems().addAll(manageShowingsMenuItem, manageMoviesMenuItem);
         super.menuBar.getMenus().add(adminMenu);
     }

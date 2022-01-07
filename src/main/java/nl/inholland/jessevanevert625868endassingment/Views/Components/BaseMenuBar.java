@@ -15,7 +15,7 @@ public abstract class BaseMenuBar {
         this.createMenuBar();
     }
 
-    public void createMenuBar(){
+    protected void createMenuBar(){
         helpMenu.getItems().add(aboutMenuItem);
         logoutMenu.getItems().add(logoutMenuItem);
         menuBar.getMenus().addAll(helpMenu, logoutMenu);
