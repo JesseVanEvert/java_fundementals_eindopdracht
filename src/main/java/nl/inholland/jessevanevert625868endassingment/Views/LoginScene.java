@@ -41,7 +41,8 @@ public class LoginScene {
         gridPane.getChildren().addAll(usernameLabel, passwordLabel,
                 usernameInput, passwordInput, loginButton);
 
-        scene = new Scene(gridPane);
+        AdminManageShowingsHBox adminManageShowingsHBox = new AdminManageShowingsHBox();
+        scene = new Scene(adminManageShowingsHBox.getAdminManageShowingsHBox());
     }
 
     public Scene getView(){
