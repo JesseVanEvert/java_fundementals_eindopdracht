@@ -1,5 +1,7 @@
 package nl.inholland.jessevanevert625868endassingment.Models;
 
+import javafx.beans.property.DoubleProperty;
+
 import java.time.LocalDateTime;
 
 public class Movie {
@@ -9,6 +11,16 @@ public class Movie {
     private String title;
     private int seats;
     private double price;
+
+    public Movie(int movieId, LocalDateTime start, LocalDateTime end, String title, int seats, double price) {
+        this.movieId = movieId;
+        this.start = start;
+        this.end = end;
+        this.title = title;
+        this.seats = seats;
+        this.price = price;
+    }
+
 
     public int getMovieId() {
         return movieId;

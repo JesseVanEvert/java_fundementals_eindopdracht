@@ -14,11 +14,12 @@ import nl.inholland.jessevanevert625868endassingment.Views.Components.PurchaseTi
 import nl.inholland.jessevanevert625868endassingment.Views.Components.UserMenuBar;
 
 public class LoginScene {
-    Label usernameLabel = new Label("Username:");
-    TextField usernameInput = new TextField();
-    Label passwordLabel = new Label("Password:");
-    PasswordField passwordInput = new PasswordField();
-    Button loginButton = new Button("Log in");
+    private final Label usernameLabel = new Label("Username:");
+    private final TextField usernameInput = new TextField();
+    private final Label passwordLabel = new Label("Password:");
+    private final PasswordField passwordInput = new PasswordField();
+    private final Button loginButton = new Button("Log in");
+    private final Label badCredentialLabel = new Label("Bad credentials");
 
     Scene scene;
 
@@ -37,15 +38,40 @@ public class LoginScene {
         GridPane.setConstraints(passwordLabel, 0, 2);
         GridPane.setConstraints(passwordInput, 0, 3);
         GridPane.setConstraints(loginButton, 0, 4);
+        GridPane.setConstraints(badCredentialLabel, 0, 5);
+        this.badCredentialLabel.setVisible(false);
 
         gridPane.getChildren().addAll(usernameLabel, passwordLabel,
-                usernameInput, passwordInput, loginButton);
+                usernameInput, passwordInput, loginButton, badCredentialLabel);
 
-        AdminManageShowingsHBox adminManageShowingsHBox = new AdminManageShowingsHBox();
-        scene = new Scene(adminManageShowingsHBox.getAdminManageShowingsHBox());
+        scene = new Scene(gridPane);
     }
 
     public Scene getView(){
         return this.scene;
+    }
+
+    public Label getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public TextField getUsernameInput() {
+        return usernameInput;
+    }
+
+    public Label getPasswordLabel() {
+        return passwordLabel;
+    }
+
+    public PasswordField getPasswordInput() {
+        return passwordInput;
+    }
+
+    public Button getLoginButton() {
+        return loginButton;
+    }
+
+    public Label getBadCredentialLabel() {
+        return badCredentialLabel;
     }
 }

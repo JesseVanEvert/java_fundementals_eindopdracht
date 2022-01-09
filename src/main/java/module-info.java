@@ -5,4 +5,6 @@ module nl.inholland.jessevanevert625868endassingment {
 
     opens nl.inholland.jessevanevert625868endassingment to javafx.fxml;
     exports nl.inholland.jessevanevert625868endassingment;
+    exports nl.inholland.jessevanevert625868endassingment.Models;
+    opens nl.inholland.jessevanevert625868endassingment.Models to javafx.base, javafx.fxml;
 }
