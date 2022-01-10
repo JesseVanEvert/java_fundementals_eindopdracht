@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 
 public class PurchaseTicketVBox {
     private final VBox purchaseTicketVBox = new VBox();
-    private final HBox firtRow = new HBox();
+    private final HBox firstRow = new HBox();
     private final HBox secondRow = new HBox();
     private final HBox thirdRow = new HBox();
     private final Label roomLabel = new Label("Room: ");
@@ -29,14 +29,14 @@ public class PurchaseTicketVBox {
     }
 
     private void createPurchaseTicketVBox(){
-        firtRow.getChildren().addAll(roomLabel, movieTitleLabel);
+        firstRow.getChildren().addAll(roomLabel, movieTitleLabel);
         secondRow.getChildren().addAll(startLabel, numberOfSeats, dropDown, purchaseButton);
         thirdRow.getChildren().addAll(endLabel, nameLabel,nameInput, clearButton);
-        purchaseTicketVBox.getChildren().addAll(firtRow, secondRow, thirdRow);
+        purchaseTicketVBox.getChildren().addAll(firstRow, secondRow, thirdRow);
     }
 
     private void applyStyling(){
-        firtRow.setSpacing(20);
+        firstRow.setSpacing(20);
         secondRow.setSpacing(20);
         thirdRow.setSpacing(20);
         roomLabel.setMinWidth(100);
@@ -53,5 +53,45 @@ public class PurchaseTicketVBox {
 
     public VBox getPurchaseTicketVBox(){
         return this.purchaseTicketVBox;
+    }
+
+    public Label getRoomLabel() {
+        return roomLabel;
+    }
+
+    public Label getMovieTitleLabel() {
+        return movieTitleLabel;
+    }
+
+    public Label getStartLabel() {
+        return startLabel;
+    }
+
+    public Label getEndLabel() {
+        return endLabel;
+    }
+
+    public Label getNumberOfSeats() {
+        return numberOfSeats;
+    }
+
+    public ComboBox getDropDown() {
+        return dropDown;
+    }
+
+    public Label getNameLabel() {
+        return nameLabel;
+    }
+
+    public TextField getNameInput() {
+        return nameInput;
+    }
+
+    public Button getPurchaseButton() {
+        return purchaseButton;
+    }
+
+    public Button getClearButton() {
+        return clearButton;
     }
 }

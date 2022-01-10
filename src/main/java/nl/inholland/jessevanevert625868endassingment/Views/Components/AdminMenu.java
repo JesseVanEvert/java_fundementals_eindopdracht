@@ -31,4 +31,6 @@ public class AdminMenu extends BaseMenuBar {
     public MenuItem getManageMoviesMenuItem() {
         return manageMoviesMenuItem;
     }
+
+
 }

@@ -55,4 +55,52 @@ public class AdminManageShowingsHBox {
     public HBox getAdminManageShowingsHBox(){
         return this.adminManageShowingsHBox;
     }
+
+    public Label getMovieTitleLabel() {
+        return movieTitleLabel;
+    }
+
+    public Label getRoomLabel() {
+        return roomLabel;
+    }
+
+    public Label getNumberOfSeatsLabel() {
+        return numberOfSeatsLabel;
+    }
+
+    public Label getStartLabel() {
+        return startLabel;
+    }
+
+    public Label getEndLabel() {
+        return endLabel;
+    }
+
+    public Label getPriceLabel() {
+        return priceLabel;
+    }
+
+    public ComboBox getMovieTitleDropDown() {
+        return movieTitleDropDown;
+    }
+
+    public ComboBox getRoomDropDown() {
+        return roomDropDown;
+    }
+
+    public DatePicker getStartDatePicker() {
+        return startDatePicker;
+    }
+
+    public TextField getStartTimeInput() {
+        return startTimeInput;
+    }
+
+    public Button getAddShowingButton() {
+        return addShowingButton;
+    }
+
+    public Button getClearButton() {
+        return clearButton;
+    }
 }

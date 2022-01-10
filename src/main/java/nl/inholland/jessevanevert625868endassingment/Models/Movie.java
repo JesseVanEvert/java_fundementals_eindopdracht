@@ -11,16 +11,20 @@ public class Movie {
     private String title;
     private int seats;
     private double price;
+    private int durationInMinutes;
 
-    public Movie(int movieId, LocalDateTime start, LocalDateTime end, String title, int seats, double price) {
+    public Movie(int movieId, LocalDateTime start, LocalDateTime end, String title, int seats, double price, int durationInMinutes) {
         this.movieId = movieId;
         this.start = start;
         this.end = end;
         this.title = title;
         this.seats = seats;
         this.price = price;
+        this.durationInMinutes = durationInMinutes;
     }
 
+    public Movie() {
+    }
 
     public int getMovieId() {
         return movieId;
@@ -68,5 +72,13 @@ public class Movie {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getDurationInMinutes() {
+        return durationInMinutes;
+    }
+
+    public void setDurationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
     }
 }
