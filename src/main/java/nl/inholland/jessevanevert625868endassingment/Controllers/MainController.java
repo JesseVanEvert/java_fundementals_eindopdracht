@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import nl.inholland.jessevanevert625868endassingment.Models.Admin;
@@ -33,6 +34,7 @@ public class MainController {
     private final TextField filterRoomViewsTextField = new TextField();
     private final VBox screen = new VBox();
     private final Stage purchasedTicketPopup = new Stage();
+    private final ToggleButton todaysFilms = new ToggleButton();
 
     private DataObject dataObject;
     private Scene scene;
@@ -54,6 +56,12 @@ public class MainController {
     public void onLogoutMenuItemClick(ActionEvent actionEvent){
         LoginController loginController = new LoginController(dataObject);
         loginController.setLoginScene();
+    }
+
+    public void onToggleButtonClick(ActionEvent actionEvent){
+        if(this.todaysFilms.isSelected()){
+
+        }
     }
 
     public void onCancelButtonClick(ActionEvent actionEvent){
