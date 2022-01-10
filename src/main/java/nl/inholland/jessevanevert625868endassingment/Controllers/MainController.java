@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import nl.inholland.jessevanevert625868endassingment.Models.Admin;
@@ -29,8 +30,10 @@ public class MainController {
     private final PurchaseTicketVBox purchaseTicketVBox = new PurchaseTicketVBox();
     private final RoomTableView room1TableView = new RoomTableView();
     private final RoomTableView room2TableView = new RoomTableView();
+    private final TextField filterRoomViewsTextField = new TextField();
     private final VBox screen = new VBox();
     private final Stage purchasedTicketPopup = new Stage();
+
     private DataObject dataObject;
     private Scene scene;
     private Movie selectedMovie;
@@ -38,8 +41,9 @@ public class MainController {
 
     public MainController(DataObject dataObject) {
         this.dataObject = dataObject;
-        setListenerMovieRoom1TableView();
-        setListenerMovieRoom2TableView();
+        this.setListenerMovieRoom1TableView();
+        this.setListenerMovieRoom2TableView();
+        this.changeViewsOnTextFieldInput();
         adminMenuBar.getManageShowingsMenuItem().setOnAction(this::onManageShowingMenuItemClick);
         adminMenuBar.getLogoutMenuItem().setOnAction(this::onLogoutMenuItemClick);
         purchaseTicketVBox.getPurchaseButton().setOnAction(this::onPurchaseButtonClick);
@@ -139,6 +143,21 @@ public class MainController {
         purchaseTicketVBox.getPurchaseTicketVBox().setVisible(false);
     }
 
+    public void changeViewsOnTextFieldInput(){
+        filterRoomViewsTextField.textProperty().addListener((observable) -> {
+            int count = filterRoomViewsTextField.getText().length();
+            if(count >= 2){
+                //this.clearRoomTableViews();
+                ObservableList<Movie> room1Movies = FXCollections.observableArrayList(dataObject.getRoom1MoviesStartWithTheLetters(filterRoomViewsTextField.getText()));
+                ObservableList<Movie> room2Movies = FXCollections.observableArrayList(dataObject.getRoom2MoviesStartWithTheLetters(filterRoomViewsTextField.getText()));
+                room1TableView.getRoomTableView().setItems(room1Movies);
+                room2TableView.getRoomTableView().setItems(room2Movies);
+            }
+            if(count == 0){
+                this.setTableViewItems();
+            }
+        });
+    }
 
     public void setPurchaseTicketVBoxData(Movie movie){
         purchaseTicketVBox.getMovieTitleLabel().setText("Movie: " + movie.getTitle());
@@ -210,10 +229,10 @@ public class MainController {
 
     public void setView(Person person){
         if(person.getClass() == Admin.class){
-             screen.getChildren().addAll(adminMenuBar.getAdminMenu(), room1TableView.getRoomTableView(), room2TableView.getRoomTableView(), adminManageShowingsHBox.getAdminManageShowingsHBox());
+             screen.getChildren().addAll(filterRoomViewsTextField, adminMenuBar.getAdminMenu(), room1TableView.getRoomTableView(), room2TableView.getRoomTableView(), adminManageShowingsHBox.getAdminManageShowingsHBox());
         }
         else{
-            screen.getChildren().addAll(userMenuBar.getMenuBar(), room1TableView.getRoomTableView(), room2TableView.getRoomTableView(), purchaseTicketVBox.getPurchaseTicketVBox());
+            screen.getChildren().addAll(filterRoomViewsTextField, userMenuBar.getMenuBar(), room1TableView.getRoomTableView(), room2TableView.getRoomTableView(), purchaseTicketVBox.getPurchaseTicketVBox());
         }
         adminManageShowingsHBox.getAdminManageShowingsHBox().setVisible(false);
         purchaseTicketVBox.getPurchaseTicketVBox().setVisible(false);

@@ -1,8 +1,10 @@
 package nl.inholland.jessevanevert625868endassingment.Models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 
 public class DataObject {
 
@@ -56,6 +58,31 @@ public class DataObject {
         }
         return null;
     }
+
+    public ArrayList<Movie> getRoom1MoviesStartWithTheLetters(String letters){
+           ArrayList<Movie> listWithFilteredMovies = new ArrayList<>();
+        for (Movie movie : room1Movies) {
+            String movieTitle = movie.getTitle();
+            String movieLetters = movieTitle.length() < letters.length() ? movieTitle : movieTitle.substring(0, letters.length());
+            if (movieLetters.toLowerCase(Locale.ROOT).equals(letters.toLowerCase(Locale.ROOT)))
+                listWithFilteredMovies.add(movie);
+        }
+
+        return listWithFilteredMovies;
+    }
+
+    public ArrayList<Movie> getRoom2MoviesStartWithTheLetters(String letters){
+        ArrayList<Movie> listWithFilteredMovies = new ArrayList<>();
+
+        for (Movie movie : room2Movies){
+            String movieTitle = movie.getTitle();
+            String movieLetters = movieTitle.length() < letters.length() ? movieTitle : movieTitle.substring(0, letters.length());
+            if (movieLetters.toLowerCase(Locale.ROOT).equals(letters.toLowerCase(Locale.ROOT)))
+                listWithFilteredMovies.add(movie);
+        }
+        return listWithFilteredMovies;
+    }
+
 
     public HashSet<String> getAllMovieTitles(){
         HashSet<String> movieTitles = new HashSet<>();
