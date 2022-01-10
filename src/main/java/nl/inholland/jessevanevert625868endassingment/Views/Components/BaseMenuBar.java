@@ -24,4 +24,20 @@ public abstract class BaseMenuBar {
     public MenuBar getMenuBar(){
         return this.menuBar;
     }
+
+    public Menu getHelpMenu() {
+        return helpMenu;
+    }
+
+    public Menu getLogoutMenu() {
+        return logoutMenu;
+    }
+
+    public MenuItem getLogoutMenuItem() {
+        return logoutMenuItem;
+    }
+
+    public MenuItem getAboutMenuItem() {
+        return aboutMenuItem;
+    }
 }

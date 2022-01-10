@@ -14,11 +14,11 @@ import nl.inholland.jessevanevert625868endassingment.Models.DataObject;
 import nl.inholland.jessevanevert625868endassingment.Models.Movie;
 import nl.inholland.jessevanevert625868endassingment.Models.Person;
 import nl.inholland.jessevanevert625868endassingment.Views.Components.*;
+import nl.inholland.jessevanevert625868endassingment.Views.LoginScene;
 import nl.inholland.jessevanevert625868endassingment.Views.MainWindow;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,12 +38,18 @@ public class MainController {
 
     public MainController(DataObject dataObject) {
         this.dataObject = dataObject;
-        getMovieFromRoom1TableView();
-        getMovieFromRoom2TableView();
+        setListenerMovieRoom1TableView();
+        setListenerMovieRoom2TableView();
         adminMenuBar.getManageShowingsMenuItem().setOnAction(this::onManageShowingMenuItemClick);
+        adminMenuBar.getLogoutMenuItem().setOnAction(this::onLogoutMenuItemClick);
         purchaseTicketVBox.getPurchaseButton().setOnAction(this::onPurchaseButtonClick);
         purchaseTicketVBox.getClearButton().setOnAction(this::onClearButtonClick);
         adminManageShowingsHBox.getAddShowingButton().setOnAction(this::onAddShowingButtonClick);
+    }
+
+    public void onLogoutMenuItemClick(ActionEvent actionEvent){
+        LoginController loginController = new LoginController(dataObject);
+        loginController.setLoginScene();
     }
 
     public void onCancelButtonClick(ActionEvent actionEvent){
@@ -153,6 +159,8 @@ public class MainController {
         List<String> movieTitlesArrayList = new ArrayList<>(dataObject.getAllMovieTitles());
         ObservableList<String> movieTitles = FXCollections.observableArrayList(movieTitlesArrayList);
         adminManageShowingsHBox.getMovieTitleDropDown().setItems(movieTitles);
+        //De onderstaande regel breekt de code geen idee waarom
+        //adminManageShowingsHBox.getPriceLabel().setText("Price: " + movie.getPrice());
         adminManageShowingsHBox.getMovieTitleDropDown().getSelectionModel().selectFirst();
         //Hard coded for now; has to change
         adminManageShowingsHBox.getNumberOfSeatsLabel().setText("No. of seats: " + 100);
@@ -164,7 +172,7 @@ public class MainController {
         adminManageShowingsHBox.getPriceLabel().setText("Price: " + moviePrice);
     }
 
-    public void getMovieFromRoom1TableView(){
+    public void setListenerMovieRoom1TableView(){
         room1TableView.getRoomTableView().getSelectionModel().selectedItemProperty().addListener((Observable observable) -> {
             purchaseTicketVBox.getPurchaseTicketVBox().setVisible(true);
             int index = room1TableView.getRoomTableView().getSelectionModel().getSelectedIndex();
@@ -173,7 +181,7 @@ public class MainController {
         });
     }
 
-    public void getMovieFromRoom2TableView(){
+    public void setListenerMovieRoom2TableView(){
         room2TableView.getRoomTableView().getSelectionModel().selectedItemProperty().addListener((Observable observable) -> {
             purchaseTicketVBox.getPurchaseTicketVBox().setVisible(true);
             int index = room2TableView.getRoomTableView().getSelectionModel().getSelectedIndex();
