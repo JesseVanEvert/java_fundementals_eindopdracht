@@ -34,6 +34,7 @@ public class MainController {
     private DataObject dataObject;
     private Scene scene;
     private Movie selectedMovie;
+    private
 
 
     public MainController(DataObject dataObject) {
